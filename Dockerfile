@@ -14,12 +14,12 @@ RUN npm install -g yo generator-hubot coffee-script
 # Working enviroment
 ENV BOTDIR /opt/data/bot
 ENV HUBOT_USER hubot
-RUN install -o ${HUBOT_USER} -d ${BOTDIR}
-ENV HOME ${BOTDIR}
-WORKDIR ${BOTDIR}
+RUN useradd ${HUBOT_USER} -m
+RUN chown -R ${HUBOT_USER} ${BOTDIR}
 
 # Install Hubot
 USER ${HUBOT_USER}
+WORKDIR ${BOTDIR}
 RUN yo hubot --name="Hubot" --defaults
 
 # Install slack adapter
