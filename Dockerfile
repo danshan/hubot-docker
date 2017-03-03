@@ -13,6 +13,7 @@ RUN npm install -g yo generator-hubot coffee-script
 
 # Working enviroment
 ENV BOTDIR /opt/data/bot
+RUN mkdir -p ${BOTDIR}
 ENV HUBOT_USER hubot
 RUN useradd ${HUBOT_USER} -m
 RUN chown -R ${HUBOT_USER} ${BOTDIR}
