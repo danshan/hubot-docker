@@ -18,7 +18,7 @@ ENV HOME ${BOTDIR}
 WORKDIR ${BOTDIR}
 
 # Install Hubot
-USER nobody
+USER hubot
 RUN yo hubot --name="Hubot" --defaults
 
 # Install slack adapter
