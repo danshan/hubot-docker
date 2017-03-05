@@ -4,3 +4,6 @@ services:
   - docker
 script:
   - docker build -t danshan/hubot-docker .
+
+notifications:
+  slack: shanhonghao:pdqZbe3SSqGZahgfKsddxPE5
