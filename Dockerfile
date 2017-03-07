@@ -26,3 +26,4 @@ RUN yo hubot --name="Hubot" --defaults
 # Install slack adapter
 RUN npm install hubot-slack --save
 RUN npm install hubot-reload-scripts --save
+RUN npm install hubot-proxy-loader --save
