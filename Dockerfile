@@ -28,7 +28,3 @@ RUN npm install hubot-slack --save
 RUN npm install hubot-reload-scripts --save
 RUN npm install hubot-proxy-loader --save
 
-ARG VCS_REF
-
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/danshan/hubot-docker"
