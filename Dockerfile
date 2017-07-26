@@ -1,18 +1,21 @@
-FROM mhart/alpine-node:8.2
+FROM node:8.1.2
 MAINTAINER Dan <i@shanhh.com>
 
-# Install coffee-script, hubot
-RUN npm install -g yo generator-hubot coffee-script
+RUN npm install -g hubot yo generator-hubot coffee-script
 
 # Working enviroment
 ENV BOTDIR /opt/data/bot
-ENV HUBOT_USER hubot
+ENV BOTUSER hubot
 
+# Install coffee-script, hubot
 RUN mkdir -p ${BOTDIR}
-RUN useradd ${HUBOT_USER} -m
-RUN chown -R ${HUBOT_USER} ${BOTDIR}
+
+# Create user
+RUN useradd -m ${BOTUSER}
+RUN chown -R ${BOTUSER} ${BOTDIR}
 
 # Install Hubot
-USER ${HUBOT_USER}
 WORKDIR ${BOTDIR}
+USER ${BOTUSER}
+
 RUN yo hubot --name="Hubot" --defaults
